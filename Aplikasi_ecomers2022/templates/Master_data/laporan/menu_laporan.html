@@ -1,0 +1,70 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+<section class="content">
+      <div class="container-fluid">
+        <h5 class="mb-2">Halaman Menu Laporan</h5>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-12">
+            <a href="{% url 'lp_pengiriman' %}" target="_blank"> 
+            <div class="info-box">              
+                <span class="info-box-icon bg-info"><i class="fa fa-print"></i></span>
+              
+              <div class="info-box-content">
+                <span class="info-box-text">Laporan Pengiriman</span>
+                <span class="info-box-number">--Laporan All--</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </a>
+            <!-- /.info-box -->
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-12">
+            <a href="{% url 'lp_pemesanan' %}" target="_blank"> 
+            <div class="info-box">              
+                <span class="info-box-icon bg-info"><i class="fa fa-print"></i></span>             
+
+              <div class="info-box-content">
+                <span class="info-box-text">Laporan Pemesanan</span>
+                <span class="info-box-number">--Laporan All--</span>
+              </div>              
+              <!-- /.info-box-content -->
+            </div>
+          </a>
+            <!-- /.info-box -->
+          </div>          
+
+          <div class="col-md-3 col-sm-6 col-12">
+            <a href="{% url 'lp_penjualan' %}" target="_blank"> 
+            <div class="info-box">              
+                <span class="info-box-icon bg-info"><i class="fa fa-print"></i></span>              
+
+              <div class="info-box-content">
+                <span class="info-box-text">Laporan Transaksi Penjualan</span>
+                <span class="info-box-number">--Laporan All--</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </a>
+            <!-- /.info-box -->
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-12">
+            <a href="{% url 'lp_transaksi_pemesanan' %}" target="_blank"> 
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fa fa-print"></i></span>              
+
+              <div class="info-box-content">
+                <span class="info-box-text">Laporan Transaksi Pemesanan</span>
+                <span class="info-box-number">--Laporan All--</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </a>
+            <!-- /.info-box -->
+          </div>
+
+</div>
+</div>
+</section>
+{% include 'style_bawah.html' %}

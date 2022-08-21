@@ -1,0 +1,70 @@
+<!<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Laporan</title>
+  <link href="/static/js_print/styles.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+    table, th, td {
+        border: 1px solid blue;
+    }
+    td {
+    padding: 10px;
+    text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+<div id="body"> 
+<div align="center">
+<h2>LAPORAN TRANSAKSI PEMESANAN</h2>
+</div>
+<table id="example1" class="table table-bordered table-striped" border="1">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nota</th>
+                    <th>No KTP</th>
+                    <th>Nama Lengkap</th>
+                    <th>Nama Kategori</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah Pesanan</th>
+                    <th>Harga</th>
+                    <th>Total</th>
+                    <th>Bayar</th>
+                    <th>Kembalian</th>
+                    <th>Status Pembayaran</th>
+                    <th>Tanggal Pemesanan</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for tampil in tampil %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{tampil.nota}}</td>
+                          <td>{{tampil.noktp}}</td>
+                          <td>{{tampil.nama_lengkap}}</td>
+                          <td>{{tampil.nama_kategori}}</td>
+                          <td>{{tampil.nama_barang}}</td>
+                          <td>{{tampil.jumlah_pesanan}}</td>
+                          <td>{{tampil.harga_barang}}</td>
+                          <td>{{tampil.total}}</td>
+                          <td>{{tampil.bayar}}</td>
+                          <td>{{tampil.kembalian}}</td>
+                          <td>{{tampil.status_pembayaran}}</td>
+                          <td>{{tampil.tanggal_pemesanan}}</td>
+                  </tr>
+                </tbody>
+                  {% endfor %}
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+</body>
+</html>

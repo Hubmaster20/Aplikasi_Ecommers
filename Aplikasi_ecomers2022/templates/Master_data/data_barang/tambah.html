@@ -1,0 +1,100 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+ <div class="col-md-12">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-check"></i> TAMBAH DATA BARANG E-COMERS
+                </h3>
+              </div>
+              <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <!-- Date -->
+                <div class="form-group">
+                  <label>Nama Barang</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nama_barang" required placeholder="Enter Barang"/>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Nama Kategori</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <select name="nama_kategori" required class="form-control">
+                          <option value="">--Pilih Data--</option>
+                          {% for select in select_kategori %}
+                          <option>{{select.nama_kategori}}</option>
+                          {% endfor %}
+                        </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Satuan Barang</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="satuan" required placeholder="Enter Satuan Barang"/>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Stock Barang</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="number" class="form-control" name="stock" required placeholder="Enter Stock Barang"/>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Harga Barang</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="number" class="form-control" name="harga" required placeholder="Enter Harga Barang"/>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Gambar Barang</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="file" class="form-control" name="gambar" required/>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Date and time -->
+                <div class="form-group">
+                  <label>Deskripsi Barang</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <textarea name="deskripsi" required class="form-control" rows="9" placeholder="Enter Deskripsi Barang" /></textarea>
+                      </div>
+                </div>
+                <!-- /.form group -->
+              </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info"><i class="fa fa-upload"></i> Submit</button>
+                  <button type="reset" class="btn btn-warning"><i class="fa fa-refresh"></i> Reset</button>
+                  <a href="{% url 'barang' %}" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </form>
+
+</div>
+</div>
+    </section>
+{% include 'style_bawah.html' %}

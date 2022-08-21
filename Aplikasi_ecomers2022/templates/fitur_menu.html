@@ -1,0 +1,163 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: lightseagreen;">
+    <!-- Brand Logo -->
+    <a href="" class="brand-link" style="color: white;">
+      <img src="/static/keranjang2.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Aplikasi E-Commerce</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="/static/admin.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block" style="color: white;">Welcome, {{user}}</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="hidden" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="{% url 'Home' %}" class="nav-link" style="color: white;">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Home                
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'pengiriman' %}" class="nav-link" style="color: white;">
+              <i class="nav-icon fas fa-bus"></i>
+              <p>
+                Form Data Pengiriman
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>          
+          <li class="nav-item">
+            <a href="{% url 'penjualan' %}" class="nav-link" style="color: white;">
+              <i class="nav-icon fas fa-anchor"></i>
+              <p>
+                Transaksi Penjualan
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'transaksi_pemesanan' %}" class="nav-link" style="color: white;">
+              <i class="nav-icon fas fa-anchor"></i>
+              <p>
+                Transaksi Pemesanan
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link" style="color: white;">
+              <i class="nav-icon fas fa-bell"></i>
+              <p>
+                Master Pemesanan
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'pemesanan' %}" class="nav-link" style="color: white;">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Check Data Pemesanan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'pelanggan' %}" class="nav-link" style="color: white;">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Check Data Pelanggan</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" style="color: white;">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Master Data
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'barang' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Barang</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'kurir' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Kurir</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'pegawai' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Pegawai</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class="nav-header">HALAMAN MENU LAPORAN</li>
+          <li class="nav-item">
+            <a href="{% url 'Menu_laporan' %}" class="nav-link" style="color: white;">
+              <i class="nav-icon fa fa-print"></i>
+              <p class="text">MENU LAPORAN</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>APLIKASI E-COMMERCE</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'Home' %}">Home</a></li>
+              <li class="breadcrumb-item active">
+                <a href="{% url 'kategori' %}"><img src="/static/icon/keranjang.png">
+              Kategori E-Commerce
+            </a>
+            </li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>

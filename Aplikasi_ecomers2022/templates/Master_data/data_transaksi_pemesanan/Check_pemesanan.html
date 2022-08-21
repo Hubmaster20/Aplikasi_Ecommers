@@ -1,0 +1,66 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-cube"></i>
+                <b>FORM PROSES TRANSAKSI PEMESANAN BARANG</b>
+                </h3>
+                <div align="right">
+                  <a href="{% url 'transaksi_pemesanan' %}" class="btn btn-sidebar btn-danger">
+                    <i class="fa fa-close"></i> Kembali</a>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>No-KTP</th>
+                    <th>Nama Pelanggan</th>
+                    <th>Jumlah Pesanan</th>
+                    <th>Harga Barang</th>
+                    <th>Tanggal Pesanan</th>
+                    <th>Proses Transaksi</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for tampil in tampil %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{tampil.noktp}}</td>
+                          <td>{{tampil.nama_lengkap}}</td>
+                          <td>{{tampil.jumlah_pesanan}}</td>
+                          <td>{{tampil.harga_barang}}</td>
+                          <td>{{tampil.tanggal_pemesanan}}</td>
+                          <td>
+<a href="{% url 'Tambah_transaksi_pemesanan' tampil.id %}" class="btn btn-xs btn-info" title="Proses" onclick="return confirm('Apakah Anda Yakin Akan Memproses Pemesanan')">
+      <i class="fa fa-bullhorn bigger-130"></i> Proses Transaksi Pemesanan
+      </a>
+
+    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+{% include 'style_bawah.html' %}

@@ -1,0 +1,76 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+{% if messages %}
+{% for info in messages %}
+<script>alert('{{info}}');location='{% url "barang" %}';</script>
+{% endfor %}
+{% endif %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-cube"></i>
+                <b>FORM TABEL BARANG E-COMERS</b>
+                </h3>
+                <div align="right">Silakan tambahkan data dengan klik tombol tambah data.
+                  <a href="{% url 'Tambah_barang' %}" class="btn btn-sidebar btn-info">
+                    <i class="fa fa-plus"></i> Tambah Data</a>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama Barang</th>
+                    <th>Nama Kategori</th>
+                    <th>Satuan</th>
+                    <th>Stock</th>
+                    <th>Harga</th>
+                    <th>Gambar</th>
+                    <th>Deskripsi</th>
+                    <th>Aksi</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for tampil in tampil %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{tampil.nama_barang}}</td>
+                          <td>{{tampil.nama_kategori}}</td>
+                          <td>{{tampil.satuan}}</td>
+                          <td>{{tampil.stock}}</td>
+                          <td>{{tampil.harga}}</td>
+                          <td><img src="{{tampil.gambar.url}}" style="width: 90px; height: 60px;"></td>
+                          <td>{{tampil.deskripsi}}</td>
+                          <td>
+<a href="{% url 'edit_barang' tampil.id %}" class="btn btn-xs btn-success" title="Edit" onclick="return confirm('Apakah Anda Yakin Ingin Mengedit Data')">
+      <i class="fa fa-edit bigger-130"></i>
+      </a>
+<a href="{% url 'hapus_barang' tampil.id %}" class="btn btn-xs btn-danger" title="Hapus" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data')">
+      <i class="fa fa-trash bigger-130"></i>
+      </a>
+    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+{% include 'style_bawah.html' %}

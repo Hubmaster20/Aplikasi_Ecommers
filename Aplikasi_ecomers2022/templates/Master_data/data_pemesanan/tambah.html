@@ -1,0 +1,122 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+ <div class="col-md-12">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-check"></i> PROSES PEMESANAN SECARA ADMIN
+                </h3><hr>
+
+                <form method="get">
+                  <select class="form-control" name="cari_kategori" required onchange="this.form.submit();">
+                    <option value="">--Pilih Kategori--</option>
+                    {% for select in select_kategori %}
+                    <option>{{select.nama_kategori}}</option>
+                    {% endfor %}
+                  </select>
+                </form>
+              </div>
+              
+        </div>
+    </section>
+{% for tampil in tampil_kategori %}
+ <section class="content">
+      <!-- Default box -->
+      <div class="card card-solid">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              
+              <div class="col-12">
+                <img src="{{tampil.gambar.url}}" class="product-image" alt="Product Image">
+              </div>
+              
+            </div>
+            <div class="col-12 col-sm-6">
+              <h3 class="my-3">{{tampil.nama_barang}}</h3>
+              <p>{{tampil.deskripsi}}</p>
+
+              <hr>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="nama_barang" value="{{tampil.nama_barang}}">
+                <input type="hidden" name="nama_kategori" value="{{tampil.nama_kategori}}">
+                <input type="hidden" name="harga_barang" value="{{tampil.harga}}">
+                <input type="text" name="noktp" placeholder="Enter Nomor KTP" required class="form-control">
+                <input type="text" name="nama_lengkap" placeholder="Enter Nama Lengkap" required class="form-control">
+                <input type="number" name="jumlah_pesanan" placeholder="Enter Jumlah" required class="form-control">
+                <label>Tanggal Pesanan</label>
+                <input type="date" name="tanggal_pemesanan"required class="form-control">
+
+                <h4 class="mt-3">Size <small>kategori : {{tampil.nama_kategori}}</small></h4>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-default text-center">
+                  <input type="radio" name="ukuran" value="S" id="color_option_b1" autocomplete="off">
+                  <span class="text-xl">S</span>
+                  <br>
+                  Small
+                  
+                </label>
+                <label class="btn btn-default text-center">
+                  <input type="radio" name="ukuran" value="M" id="color_option_b2" autocomplete="off">
+                  <span class="text-xl">M</span>
+                  <br>
+                  Medium
+                  
+                </label>
+                <label class="btn btn-default text-center">
+                  <input type="radio" name="ukuran" value="L" id="color_option_b3" autocomplete="off">
+                  <span class="text-xl">L</span>
+                  <br>
+                  Large
+                  
+                </label>
+                <label class="btn btn-default text-center">
+                  <input type="radio" name="ukuran" value="XL" id="color_option_b4" autocomplete="off">
+                  <span class="text-xl">XL</span>
+                  <br>
+                  Xtra-Large
+                  
+                </label>
+              </div>
+
+              <div class="bg-gray py-2 px-3 mt-4">
+                <h2 class="mb-0">
+                  Rp. {{tampil.harga}}
+                </h2>
+                <h4 class="mt-0">
+                  <small>Ex Tax: $80.00 </small>
+                </h4>
+              </div>
+
+              <div class="mt-4">
+                <button type="submit" class="btn btn-primary btn-lg btn-flat">
+                  <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                  Add to Cart
+                </button>
+                <a href="{% url 'pemesanan' %}">
+                <div class="btn btn-default btn-lg btn-flat">
+                  <i class="fas fa-heart fa-lg mr-2"></i>
+                  CANCEL
+                </div>
+              </a>
+              </div>
+            </form>
+
+            </div>
+          </div>
+          
+
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    {% endfor %}
+{% include 'style_bawah.html' %}

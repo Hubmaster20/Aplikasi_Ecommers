@@ -1,0 +1,130 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+<script type="text/javascript">
+  function sum(){
+    var harga_barang=document.getElementById('harga_barang').value;
+    var jumlah_pesanan=document.getElementById('jumlah_pesanan').value;
+    var result =(parseInt(harga_barang) * parseInt(jumlah_pesanan));
+    if (!isNaN(result)){
+      document.getElementById('total').value = result;
+    }
+  }
+</script>
+<script type="text/javascript">
+  function sum_bayar(){
+    var total=document.getElementById('total').value;
+    var bayar=document.getElementById('bayar').value;
+    var result =(parseInt(total) - parseInt(bayar));
+    if (!isNaN(result)){
+      document.getElementById('kembalian').value = result;
+    }
+  }
+</script>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+ <div class="col-md-12">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-check"></i> TRANSAKSI PEMESANAN
+                </h3>
+              </div>
+              <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+<div class="row">
+ <div class="col-md-6">
+                  <input type="hidden" name="noktp" value="{{check_data.noktp}}">
+                  <input type="hidden" name="nama_lengkap" value="{{check_data.nama_lengkap}}">                  
+                <!-- Date -->
+                <div class="form-group">
+                  <label>Nota</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nota" readonly value="NT-009{{nota}}" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Date and time -->
+                <div class="form-group">
+                  <label>Nama Kategori</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nama_kategori" readonly placeholder="Enter Kategori" value="{{check_data.nama_kategori}}" />
+                      </div>
+                </div>
+                <div class="form-group">
+                  <label>Nama Barang</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nama_barang" readonly placeholder="Enter Kategori" value="{{check_data.nama_barang}}" />
+                      </div>
+                </div>
+                <div class="form-group">
+                  <label>Jumlah Pesanan <small>Proses Jumlah</small></label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control" name="jumlah_pesanan" readonly value="{{check_data.jumlah_pesanan}}" id="jumlah_pesanan" onclick="sum();"/>
+                      </div>
+                </div>
+                <div class="form-group">
+                  <label>Harg Barang</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control" name="harga_barang" id="harga_barang" onkeyup="sum();" readonly  value="{{check_data.harga_barang}}" />
+                      </div>
+                </div>
+                <div class="form-group">
+                  <label>Total</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control" name="total" readonly id="total" onkeyup="sum();"/>
+                      </div>
+                </div>
+</div>
+ <div class="col-md-6">
+              <div class="form-group">
+                  <label>Bayar</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control" name="bayar" id="bayar" onkeyup="sum_bayar();" required >
+                      </div>
+                </div>
+                <div class="form-group">
+                  <label>Kembalian</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control" name="kembalian" id="kembalian" onkeyup="sum_bayar();" readonly placeholder="0" >
+                      </div>
+                </div>
+                <div class="form-group">
+                  <label>Status Pembayaran</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <select name="status_pembayaran" required class="form-control">
+                          <option value="">Status</option>
+                          <option>Bayar Di Tempat</option>
+                          <option>Bayar Langsung</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="form-group">
+                  <label>Tanggal Transaksi</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="date" class="form-control" name="tanggal_pemesanan" required>
+                      </div>
+                </div>
+  </div>
+</div>
+                <!-- /.form group -->
+              </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info"><i class="fa fa-upload"></i> Submit</button>
+                  <button type="reset" class="btn btn-warning"><i class="fa fa-refresh"></i> Reset</button>
+                  <a href="{% url 'transaksi_pemesanan' %}" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </form>
+
+</div>
+</div>
+    </section>
+{% include 'style_bawah.html' %}

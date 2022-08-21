@@ -1,0 +1,50 @@
+<!<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NOTA</title>
+  <link href="/static/js_print/styles.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+    table, th, td {
+        border: 1px solid blue;
+    }
+    td {
+    padding: 10px;
+    text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div align="center">  
+<div id="container" style="width: 600px;">
+<div id="body"> 
+<div align="center">
+<h2>NOTA PENGIRIMAN BARANG
+</div>
+<div align="left">
+<b>Nota : {{tampil.kode_pengiriman}}</b><br>
+<b>Nama Barang : {{tampil.nama_barang}}</b><br>
+<b>Nama Lengkap : {{tampil.nama_lengkap}}</b><br>
+<b>Alamat Pengiriman : {{tampil.alamat_pengiriman}}</b>
+</div>
+<table>
+  <tr>
+    <td>Jumlah Pesanan : </td><td>:</td><td>{{tampil.jumlah_pesanan}}</td>
+  </tr>
+  <tr>
+    <td>Harga Barang : </td><td>:</td><td>Rp. {{tampil.harga}}</td>
+  </tr>
+  <tr>
+    <td>Total : </td><td>:</td><td>Rp. {{tampil.total}}</td>
+  </tr>
+</table>
+<b>Nama Kurir : {{tampil.nama_kurir}}</b><hr>
+</div>
+</div>
+</div>
+</body>
+</html>

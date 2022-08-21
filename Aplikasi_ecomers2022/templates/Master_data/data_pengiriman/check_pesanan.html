@@ -1,0 +1,79 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+{% if messages %}
+{% for info in messages %}
+<script>alert('{{info}}');location='{% url "transaksi_pemesanan" %}';</script>
+{% endfor %}
+{% endif %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-cube"></i>
+                <b>FORM TABEL TRANSAKSI PEMESANAN BARANG</b>
+                </h3>
+                <div align="right">Silakan tambahkan data dengan klik tombol tambah data.
+                  <a href="{% url 'Check_pemesanan' %}" class="btn btn-sidebar btn-info">
+                    <i class="fa fa-plus"></i> Tambah Data</a>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Proses Pengiriman</th>
+                    <th>Nota</th>
+                    <th>No-KTP</th>
+                    <th>Nama Lengkap</th>
+                    <th>Nama Kategori</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah Pesanan</th>
+                    <th>Harga</th>
+                    <th>Total</th>
+                    <th>Status Pembayaran</th>
+                    <th>Tanggal Pemesanan</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for tampil in tampil %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>
+      <a href="{% url 'Tambah_pengiriman' tampil.id %}" class="btn btn-xs btn-warning" title="Cetak Proses" onclick="return confirm('Apakah Anda Yakin Akan  Mem-Proses')">
+      <i class="fa fa-print bigger-130"></i> Proses Pengiriman
+      </a>
+                          </td>
+                          <td>{{tampil.nota}}</td>
+                          <td>{{tampil.noktp}}</td>
+                          <td>{{tampil.nama_lengkap}}</td>
+                          <td>{{tampil.nama_kategori}}</td>
+                          <td>{{tampil.nama_barang}}</td>
+                          <td>{{tampil.jumlah_pesanan}}</td>
+                          <td>{{tampil.harga_barang}}</td>
+                          <td>{{tampil.total}}</td>
+                          <td>{{tampil.status_pembayaran}}</td>
+                          <td>{{tampil.tanggal_pemesanan}}</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+{% include 'style_bawah.html' %}

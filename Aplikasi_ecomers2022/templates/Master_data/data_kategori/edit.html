@@ -1,0 +1,49 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+ <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-check"></i> EDIT DATA KATEGORI E-COMERS
+                </h3>
+              </div>
+              <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <!-- Date -->
+                <div class="form-group">
+                  <label>Nama Kategori</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nama_kategori" required placeholder="Enter Nama Jasa" value="{{edit_data.nama_kategori}}" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Date and time -->
+                <div class="form-group">
+                  <label>Keterangan</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <textarea name="keterangan" required class="form-control" rows="9" placeholder="Enter Keterangan" />{{edit_data.keterangan}}</textarea>
+                      </div>
+                </div>
+                <!-- /.form group -->
+              </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info">Submit</button>
+                  <a href="{% url 'kategori' %}" class="btn btn-danger">Cancel</a>
+                </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </form>
+
+</div>
+</div>
+    </section>
+{% include 'style_bawah.html' %}

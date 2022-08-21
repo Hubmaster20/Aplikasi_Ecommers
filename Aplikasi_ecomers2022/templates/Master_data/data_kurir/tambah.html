@@ -1,0 +1,62 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+ <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-check"></i> TAMBAH DATA KURIR
+                </h3>
+              </div>
+              <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <!-- Date -->
+                <div class="form-group">
+                  <label>Kode Kurir</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="kode_kurir" value="KD-4567{{kode_kurir_o}}" readonly />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Date and time -->
+                <div class="form-group">
+                  <label>Nama Kurir</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nama_kurir" required placeholder="Enter Nama Kurir"/>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>No-HP</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nohp" required placeholder="Enter Nomor HP" maxlength="12" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.form group -->
+              </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info"><i class="fa fa-upload"></i> Submit</button>
+                  <button type="reset" class="btn btn-warning"><i class="fa fa-refresh"></i> Reset</button>
+                  <a href="{% url 'kurir' %}" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </form>
+
+</div>
+</div>
+    </section>
+{% include 'style_bawah.html' %}

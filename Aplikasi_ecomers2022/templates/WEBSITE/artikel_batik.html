@@ -1,0 +1,53 @@
+{% for tampil_artikel in tampil %}
+<article class="card card-product">
+	<div class="card-body">
+	<div class="row">
+		<aside class="col-sm-3">
+			<div class="img-wrap">
+				<img src="{{tampil_artikel.gambar.url}}">
+			</div>
+		</aside> <!-- col.// -->
+		<article class="col-sm-6">
+				<h4 class="title"> {{tampil_artikel.nama_barang}}  </h4>
+				<div class="rating-wrap  mb-2">
+					<ul class="rating-stars">
+						<li style="width:80%" class="stars-active"> 
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+							<i class="fa fa-star"></i> 
+						</li>
+						<li>
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+							<i class="fa fa-star"></i> 
+						</li>
+					</ul>
+					<div class="label-rating">132 reviews</div>
+					<div class="label-rating">154 orders </div>
+				</div> <!-- rating-wrap.// -->
+				<p> {{tampil_artikel.deskripsi}} </p>
+				<dl class="dlist-align">
+				  <dt>Kategori :</dt>
+				  <dd>{{tampil_artikel.nama_kategori}}</dd>
+				</dl>  <!-- item-property-hor .// -->
+				
+			
+		</article> <!-- col.// -->
+		<aside class="col-sm-3 border-left">
+			<div class="action-wrap">
+				<div class="price-wrap h4">
+					<span class="price">Rp. {{tampil_artikel.harga}} </span>	
+					<!-- <del class="price-old"> </del> -->
+				</div> <!-- info-price-detail // -->
+				<p class="text-success">Batik shipping</p>
+				<br>
+				<p>
+					<a href="{% url 'WEBSITE_REGISTER' %}" class="btn btn-primary"> Buy now </a>					
+				</p>
+				
+			</div> <!-- action-wrap.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+	</div> <!-- card-body .// -->
+</article> <!-- card product .// -->
+{% endfor %}

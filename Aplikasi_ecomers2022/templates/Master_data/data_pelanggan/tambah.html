@@ -1,0 +1,101 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+ <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-users"></i> TAMBAH DATA PELANGGAN
+                </h3>
+              </div>
+              <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <!-- Date -->
+                <div class="form-group">
+                  <label>No-KTP</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="noktp" required placeholder="Enter No-KTP" maxlength="16" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Nama Pelanggan</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nama_lengkap" required placeholder="Enter Nama Lengkap"  />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Alamat</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="alamat" required placeholder="Enter Alamat"  />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Jenis Kelamin</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <select name="jk" required class="form-control">
+                          <option value="">-----</option>
+                          <option>Laki-Laki</option>
+                          <option>Perempuan</option>
+                        </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Nomor Hp</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nohp" required placeholder="Enter Nomor Hp"   maxlength="12" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>E-Mail</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="email" class="form-control" name="email" required placeholder="Enter E-Mail"  />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="password" required placeholder="Enter Password"  />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.form group -->
+              </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info"><i class="fa fa-upload"></i> Submit</button>
+                  <button type="reset" class="btn btn-warning"><i class="fa fa-refresh"></i> Reset</button>
+                  <a href="{% url 'pelanggan' %}" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </form>
+
+</div>
+</div>
+    </section>
+{% include 'style_bawah.html' %}

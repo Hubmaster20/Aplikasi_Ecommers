@@ -1,0 +1,111 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+ <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-check"></i> EDIT PEMESANAN PELANGGAN
+                </h3>
+              </div>
+              <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <!-- Date -->
+                <div class="form-group">
+                  <label>Nama Barang</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nama_barang" required placeholder="Enter Barang" value="{{edit_data.nama_barang}}"/>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Nama Kategori</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <select name="nama_kategori" required class="form-control">
+                          <option>{{edit_data.nama_kategori}}</option>
+                          <option value="">--Pilih Data--</option>
+                          {% for select in select_kategori %}
+                          <option>{{select.nama_kategori}}</option>
+                          {% endfor %}
+                        </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Ukuran</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="ukuran" required placeholder="Enter Ukuran Barang" value="{{edit_data.ukuran}}"/>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>No KTP</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="number" class="form-control" name="noktp" required placeholder="Enter Nomor KTP Nomor KTP" value="{{edit_data.noktp}}" readonly />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Nama Lengkap</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="nama_lengkap" required placeholder="Enter Nama Lengkap" value="{{edit_data.nama_lengkap}}" readonly />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Jumlah Pesanan</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="jumlah_pesanan" required placeholder="Enter Jumlah Pesanan" value="{{edit_data.jumlah_pesanan}}" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Harga Barang</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="harga_barang" required value="{{edit_data.harga_barang}}" readonly="" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Tanggal Pesanan</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="date" class="form-control" name="tanggal_pemesanan" required value="{{edit_data.tanggal_pemesanan}}" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.form group -->
+              </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info">Submit</button>
+                  <a href="{% url 'pemesanan' %}" class="btn btn-danger">Cancel</a>
+                </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </form>
+
+</div>
+</div>
+    </section>
+{% include 'style_bawah.html' %}

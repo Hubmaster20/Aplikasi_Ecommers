@@ -1,0 +1,58 @@
+<!<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NOTA</title>
+  <link href="/static/js_print/styles.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+    table, th, td {
+        border: 1px solid blue;
+    }
+    td {
+    padding: 10px;
+    text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div align="center">  
+<div id="container" style="width: 600px;">
+<div id="body"> 
+<div align="center">
+<h2>NOTA PENJUALAN BARANG</h2>
+</div>
+<div align="left">
+<b>Nota : {{edit_data.nota}}</b><br>
+<b>Nama Kategori : {{edit_data.nama_kategori}}</b><br>
+<b>Tanggal Penjualan : {{edit_data.tanggal_penjulan}}</b>
+</div>
+<table >
+  <tr>
+    <td>Nama Barang : </td><td>:</td><td>{{edit_data.nama_barang}}</td>
+  </tr>
+  <tr>
+    <td>Jumlah Barang : </td><td>:</td><td>{{edit_data.jumlah}}</td>
+  </tr>
+  <tr>
+    <td>Harga Barang : </td><td>:</td><td>{{edit_data.harga}}</td>
+  </tr>
+  <tr>
+    <td>Total : </td><td>:</td><td>{{edit_data.total}}</td>
+  </tr>
+  <tr>
+    <td colspan="2">Bayar : </td><td>{{edit_data.bayar}}</td>
+  </tr>
+  <tr>
+    <td colspan="2">Kembalian : </td><td>{{edit_data.kembalian}}</td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<script>print();</script>
+</body>
+</html>

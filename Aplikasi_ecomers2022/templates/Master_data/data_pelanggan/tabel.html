@@ -1,0 +1,76 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+{% if messages %}
+{% for info in messages %}
+<script>alert('{{info}}');location='{% url "pelanggan" %}';</script>
+{% endfor %}
+{% endif %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-cube"></i>
+                <b>FORM TABEL PELANGGAN</b>
+                </h3>
+                <div align="right">Silakan tambahkan data dengan klik tombol tambah data.
+                  <a href="{% url 'Tambah_pelanggan' %}" class="btn btn-sidebar btn-info">
+                    <i class="fa fa-plus"></i> Tambah Data</a>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>No-KTP</th>
+                    <th>Nama Pelanggan</th>
+                    <th>ALamat</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Nomor Hp</th>
+                    <th>E-mail</th>
+                    <th>Password</th>
+                    <th>Aksi</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for tampil in tampil %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{tampil.noktp}}</td>
+                          <td>{{tampil.nama_lengkap}}</td>
+                          <td>{{tampil.alamat}}</td>
+                          <td>{{tampil.jk}}</td>
+                          <td>{{tampil.nohp}}</td>
+                          <td>{{tampil.email}}</td>
+                          <td>{{tampil.password}}</td>
+                          <td>
+<a href="{% url 'edit_pelanggan' tampil.id %}" class="btn btn-xs btn-success" title="Edit" onclick="return confirm('Apakah Anda Yakin Ingin Mengedit Data')">
+      <i class="fa fa-edit bigger-130"></i>
+      </a>
+<a href="{% url 'hapus_pelanggan' tampil.id %}" class="btn btn-xs btn-danger" title="Hapus" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data')">
+      <i class="fa fa-trash bigger-130"></i>
+      </a>
+    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+{% include 'style_bawah.html' %}

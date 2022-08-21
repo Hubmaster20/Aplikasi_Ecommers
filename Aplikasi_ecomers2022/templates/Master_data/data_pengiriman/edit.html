@@ -1,0 +1,72 @@
+{% include 'style_atas.html' %}
+{% include 'fitur_menu.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+ <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fa fa-check"></i> EDIT ALAMAT PENGIRIMAN BARANG / PROSES KURIR
+                </h3>
+              </div>
+              <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <input type="hidden" name="noktp" value="{{edit_data.noktp}}">
+                  <input type="hidden" name="nama_lengkap" value="{{edit_data.nama_lengkap}}">
+                  <input type="hidden" name="nama_barang" value="{{edit_data.nama_barang}}">
+                  <input type="hidden" name="jumlah_pesanan" value="{{edit_data.jumlah_pesanan}}">
+                  <input type="hidden" name="harga" value="{{edit_data.harga}}">
+                  <input type="hidden" name="total" value="{{edit_data.total}}">                  
+                <!-- Date -->
+                <div class="form-group">
+                  <label>Kode Pengiriman</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="kode_pengiriman" readonly value="{{edit_data.kode_pengiriman}}" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Date and time -->
+                <div class="form-group">
+                  <label>Atur Alamat Pengiriman</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control" name="alamat_pengiriman" required placeholder="Enter ALamat Pengiriman" value="{{edit_data.alamat_pengiriman}}" />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Nama Kategori</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <select class="form-control" name="nama_kurir" required>
+                          <option>{{edit_data.nama_kurir}}</option>
+                          <option value="">Select Kurir</option>
+                          {% for select in select_kurir %}
+                          <option>{{select.nama_kurir}}</option>
+                          {% endfor %}
+                        </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.form group -->
+              </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info"><i class="fa fa-upload"></i> Submit</button>                  
+                  <a href="{% url 'pengiriman' %}" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </form>
+
+</div>
+</div>
+    </section>
+{% include 'style_bawah.html' %}

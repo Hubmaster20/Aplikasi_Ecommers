@@ -1,0 +1,112 @@
+{% for tampil_artikel in tampil %}
+{% for tampil_data in tampil_email %}
+<article class="card card-product">
+	<div class="card-body">
+	<div class="row">
+		<aside class="col-sm-3">
+			<div class="img-wrap">
+				<img src="{{tampil_artikel.gambar.url}}">
+			</div>
+		</aside> <!-- col.// -->
+		<article class="col-sm-6">
+				<h4 class="title"> {{tampil_artikel.nama_barang}}  </h4>
+				<div class="rating-wrap  mb-2">
+					<ul class="rating-stars">
+						<li style="width:80%" class="stars-active"> 
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+							<i class="fa fa-star"></i> 
+						</li>
+						<li>
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+							<i class="fa fa-star"></i> 
+						</li>
+					</ul>
+					<div class="label-rating">132 reviews</div>
+					<div class="label-rating">154 orders </div>
+				</div> <!-- rating-wrap.// -->
+				<p> {{tampil_artikel.deskripsi}} </p>
+				<dl class="dlist-align">
+				  <dt>Kategori :</dt>
+				  <dd>{{tampil_artikel.nama_kategori}}</dd>
+				</dl>  <!-- item-property-hor .// -->
+				
+			
+		</article> <!-- col.// -->
+		<aside class="col-sm-3 border-left">
+			<div class="action-wrap">
+				<div class="price-wrap h4">
+					<span class="price">Rp. {{tampil_artikel.harga}} </span>	
+					<!-- <del class="price-old"> </del> -->
+				</div> <!-- info-price-detail // -->
+				<p class="text-success">Batik shipping</p>
+				<br>
+				<form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="nama_barang" value="{{tampil_artikel.nama_barang}}">
+                <input type="hidden" name="nama_kategori" value="{{tampil_artikel.nama_kategori}}">
+                <input type="hidden" name="harga_barang" value="{{tampil_artikel.harga}}">
+                <input type="hidden" name="noktp" placeholder="Enter Nomor KTP" required class="form-control" value="{{tampil_data.noktp}}">
+
+                <input type="hidden" name="nama_lengkap" placeholder="Enter Nama Lengkap" required class="form-control" value="{{tampil_data.nama_lengkap}}">
+                <label>Jumlah Pesanan</label>
+                <input type="number" name="jumlah_pesanan" placeholder="Enter Jumlah" required class="form-control">
+                <label>Tanggal Pesanan</label>
+                <input type="date" name="tanggal_pemesanan"required class="form-control">
+
+                <h4 class="mt-3">Size <small>kategori : {{tampil_artikel.nama_kategori}}</small></h4>
+              <div >
+                <label class="btn btn-default text-center">
+                  <input type="radio" name="ukuran" value="S" id="color_option_b1" autocomplete="off">
+                  <span class="text-xl">S</span>
+                  <br>
+                  Small                  
+                </label>
+                <label class="btn btn-default text-center">
+                  <input type="radio" name="ukuran" value="M" id="color_option_b2" autocomplete="off">
+                  <span class="text-xl">M</span>
+                  <br>
+                  Medium
+                  
+                </label>
+              </div>
+              <label class="btn btn-default text-center">
+                  <input type="radio" name="ukuran" value="L" id="color_option_b3" autocomplete="off">
+                  <span class="text-xl">L</span>
+                  <br>
+                  Large
+                  
+                </label>
+                <label class="btn btn-default text-center">
+                  <input type="radio" name="ukuran" value="XL" id="color_option_b4" autocomplete="off">
+                  <span class="text-xl">XL</span>
+                  <br>
+                  Xtra-Large
+                  
+                </label>
+
+              <div class="bg-gray py-2 px-3 mt-4">
+                <h2 class="mb-0">
+                  Rp. {{tampil_artikel.harga}}
+                </h2>
+                <h4 class="mt-0">
+                  <small>Ex Tax: $80.00 </small>
+                </h4>
+              </div>
+
+              <div class="mt-4">
+                <button type="submit" class="btn btn-primary btn-lg btn-flat">
+                  <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                 Buy Now
+                </button>
+              </div>
+            </form>
+				
+			</div> <!-- action-wrap.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+	</div> <!-- card-body .// -->
+</article> <!-- card product .// -->
+{% endfor %}
+{% endfor %}
